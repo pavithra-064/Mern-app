@@ -17,7 +17,7 @@ function App3() {
    
 	const [shortUrl,setShortUrl] = useState("");
 	const submitre = () =>{
-	   Axios.post("https://mern-crud-url.herokuapp.com//api/url", {
+	   Axios.post("https://mern-crud-url.herokuapp.com/api/url", {
 		 longUrl:longUrl,
 		 shortenedUrl:shortenedUrl
 	 })
