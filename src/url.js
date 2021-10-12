@@ -19,7 +19,7 @@ function App3() {
 	const submitre = () =>{
 	   Axios.post("https://mern-crud-url.herokuapp.com/api/url", {
 		 longUrl:longUrl,
-		 shortenedUrl:shortenedUrl
+		 shortenedUrl:shortUrl
 	 })
 	  };
    
@@ -72,8 +72,6 @@ function App3() {
 			.then((data) => {
 				console.log(data);
 				if (data.link) {
-				    //console.log(shortUrl);
-					setShortUrl(data.link);
 					setShortenedUrl(data.link);
 				} else {
 					setErrMess("Unable to provide short link");
@@ -82,7 +80,7 @@ function App3() {
 	}
 	return (
 		<main className="mainn">
-			<button class="btn" onClick={() => history.push('/')}>Logout</button>
+			<button className="btn" onClick={() => history.push('/')}>Logout</button>
 		<header className="header">
 			<h2>Create Short URL</h2>
 		</header>
