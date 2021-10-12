@@ -12,12 +12,12 @@ function App3() {
 	const shortenedinput = useRef(null);
    //const[shortUrl,setShortUrll]=useState("");
 	const shortid = require("shortid"); 
-	const baseUrl="http://localhost:3000"; 
+	const baseUrl="https://mern-crud-url.herokuapp.com"; 
 	const urlCode = shortid.generate(); 
    
 	const [shortUrl,setShortUrl] = useState("");
 	const submitre = () =>{
-	   Axios.post("http://localhost:3001/api/url", {
+	   Axios.post("https://mern-crud-url.herokuapp.com//api/url", {
 		 longUrl:longUrl,
 		 shortenedUrl:shortenedUrl
 	 })

@@ -6,7 +6,6 @@
     "npm": "6.14.8"
   },
   "private": true,
-  "homepage": "https://crud-urlshortner.netlify.app/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",

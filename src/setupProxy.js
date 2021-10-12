@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://crud-url-shortner.herokuapp.com/',
+      target: 'https://mern-crud-url.herokuapp.com/',
       changeOrigin: true,
     })
   );
