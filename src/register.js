@@ -14,7 +14,7 @@ function App(){
 
    const submitreg = () =>{
      alert("successful!");
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("https://url-shortner-mern.herokuapp.com/register", {
       username: username,
       password: password, 
       useremail:useremail
