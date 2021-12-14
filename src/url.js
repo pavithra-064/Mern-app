@@ -2,7 +2,6 @@ import "./App.css";
 import { useEffect, useRef, useState } from "react";
 import Axios from 'axios';
 import history from './history';
-const accessToken = "4993dc22134c116d35c28dea1f969926b8e66447";
 
 function App3() {
 	const [longUrl, setLongUrl] = useState("");
