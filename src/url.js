@@ -2,7 +2,6 @@ import "./App.css";
 import { useEffect, useRef, useState } from "react";
 import Axios from 'axios';
 import history from './history';
-
 const accessToken = "4993dc22134c116d35c28dea1f969926b8e66447";
 
 function App3() {
@@ -12,14 +11,16 @@ function App3() {
 	const shortenedinput = useRef(null);
    //const[shortUrl,setShortUrll]=useState("");
 	const shortid = require("shortid"); 
-	const baseUrl="https://mern-crud-url.herokuapp.com"; 
-	const urlCode = shortid.generate(); 
+	/*const baseUrl="https://mern-crud-url.herokuapp.com"; */
+	const baseUrl = "http://127.0.0.1:3001"
    
 	const [shortUrl,setShortUrl] = useState("");
+	const [shortCode,setShortCode] = useState("");
 	const submitre = () =>{
-	   Axios.post("https://mern-crud-url.herokuapp.com/api/url", {
+	   Axios.post("http://localhost:3001/api/url", {
 		 longUrl:longUrl,
-		 shortenedUrl:shortUrl
+		 shortenedUrl:shortCode,
+		 shortUrl:shortUrl
 	 })
 	  };
    
@@ -28,7 +29,7 @@ function App3() {
 		if (errMess) {
 			const timeout = setTimeout(() => {
 				setErrMess("");
-			}, 3000);
+			}, 10000);
 			return () => {
 				clearTimeout(timeout);
 			};
@@ -41,43 +42,45 @@ function App3() {
 		}
 		submitre();
 	}
+/*
+	const check =() =>{
+		Axios.post("http://localhost:3001/check", {
+		  longUrl:longUrl,
+	   }).then(res =>{
+     	   alert(res.data.message);
+		if(res.data.message==="null")
+		{handleSubmit();}
+		else
+		{setShortUrl(res.data.message);}
+		console.log("pooojaa");
+	   })
+	}
+*/
+	   
 
-	function handleSubmit(e) {
+	 const handleSubmit=(e)=> {
+		Axios.post("http://localhost:3001/check", {
+			longUrl:longUrl,
+		 }).then(res =>{
+		  if(res.data.message==="null")
+		  {
+            const urlCode = shortid.generate(); 
+	console.log(urlCode);
 		const shortcode=baseUrl + "/" + urlCode;
+		setShortCode(urlCode);
 		setShortUrl(shortcode);
+		setShortenedUrl(shortcode);
 		e.preventDefault();
-		if (longUrl) {
-			const url = {
-				long_url: longUrl,
-			};
-			shortenUrl(url);
-		} else {
-			setErrMess("Please Enter a link");
-		}
-	}
+		  }
+		  else
+		  {
+			
+			setShortUrl(res.data.message);
+			e.preventDefault();
+			}		
+	})
+}
 
-	async function shortenUrl(url) {
-		setShortenedUrl("");
-		fetch("https://api-ssl.bitly.com/v4/shorten", {
-			method: "POST",
-			headers: {
-				mode:"no-cors",
-				Accept:"application/json",
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${accessToken}`,
-			},
-			body: JSON.stringify(url),
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				console.log(data);
-				if (data.link) {
-					setShortenedUrl(data.link);
-				} else {
-					setErrMess("Unable to provide short link");
-				}
-			});
-	}
 	return (
 		<main className="mainn">
 			<button className="btn" onClick={() => history.push('/')}>Logout</button>
@@ -89,15 +92,17 @@ function App3() {
 			<h2 className="labell">Paste your long URL here:</h2>
 			<p className="error-message">{errMess}</p>
 			<div className="input">
-				<form onSubmit={handleSubmit}>
+				<form>
 					<div className="form-control">
 						<input
 							type="text"
 							placeholder="long url"
+							name="fullUrl"
 							value={longUrl}
 							onChange={(e) => setLongUrl(e.target.value)}
 						/>
-						<button type="submit" id="create-short-url"  >Shorten</button>
+						<button type="button" id="create-short-url"  onClick={handleSubmit}>Shorten</button>
+						
 					</div>
 				</form>
 			</div>

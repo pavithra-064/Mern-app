@@ -14,7 +14,7 @@ function App(){
 
    const submitreg = () =>{
      alert("successful!");
-    Axios.post("https://mern-crud-url.herokuapp.com/register", {
+    Axios.post("http://localhost:3001/register", {
       username: username,
       password: password, 
       useremail:useremail
