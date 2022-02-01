@@ -130,14 +130,10 @@ res.redirect(shortUrl.longUrl)
 const PORT = process.env.PORT || 3001;
 
  
-
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-});
-
-if(process.env.NODE_ENV==="production"){
-  app.use(express.static(path.resolve(__dirname, "/client/build")));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
 }
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
