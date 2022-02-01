@@ -1,0 +1,7 @@
+{
+    "env": {
+        "mongoURI":"mongodb+srv://pavithra-064:Shaposu3217@cruddb.si1xg.mongodb.net/cruddb?retryWrites=true&w=majority",
+        "baseUrl": "http://localhost:3001/",
+        "NODE_ENV": "development"
+    }
+}
