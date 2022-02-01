@@ -131,9 +131,9 @@ const PORT = process.env.PORT || 3001;
 
  
 
-  app.use(express.static(path.resolve(__dirname, "/client/build")));
+  app.use(express.static(path.resolve(__dirname, "./client/build")));
   app.get("*", (req, res) => {
-    response.sendFile(path.resolve(__dirname, "/client/build", "index.html"));
+    response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
   });
   
 
