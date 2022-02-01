@@ -1,5 +1,5 @@
 {
     "env": {
-        "mongoURI":"mongodb+srv://pavithra-064:Shaposu3217@cruddb.si1xg.mongodb.net/cruddb?retryWrites=true&w=majority"
+        "MONGODB_URI":"mongodb+srv://pavithra-064:Shaposu3217@cruddb.si1xg.mongodb.net/cruddb?retryWrites=true&w=majority"
     }
 }
