@@ -50,5 +50,9 @@
     "devDependencies": {
         "webpack-cli": "^4.8.0"
     },
-    "proxy": "http://localhost:5000"
+    "proxy": {
+        "/auth/google": {
+          "target": "localhost:5000"
+        }
+      }
 }
