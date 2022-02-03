@@ -127,7 +127,7 @@ if(!shortUrl) return res.sendStatus(404)
 res.redirect(shortUrl.longUrl)
 })
  
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 
  
 
