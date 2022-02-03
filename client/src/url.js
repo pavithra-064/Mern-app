@@ -12,12 +12,12 @@ function App3() {
    //const[shortUrl,setShortUrll]=useState("");
     const shortid = require("shortid");
     /*const baseUrl="https://url-shortner-mern.herokuapp.com";*/
-    const baseUrl = "http://127.0.0.1:3001";
+    const baseUrl = "http://127.0.0.1:5000";
    
     const [shortUrl,setShortUrl] = useState("");
     const [shortCode,setShortCode] = useState("");
     const submitre = () =>{
-       Axios.post("http://localhost:3001/api/url", {
+       Axios.post("http://localhost:5000/api/url", {
          longUrl:longUrl,
          shortenedUrl:shortCode,
          shortUrl:shortUrl
@@ -44,7 +44,7 @@ function App3() {
     }
 /*
     const check =() =>{
-        Axios.post("http://localhost:3001/check", {
+        Axios.post("http://localhost:5000/check", {
           longUrl:longUrl,
        }).then(res =>{
            alert(res.data.message);
@@ -59,7 +59,7 @@ function App3() {
        
  
      const handleSubmit=(e)=> {
-        Axios.post("http://localhost:3001/check", {
+        Axios.post("http://localhost:5000/check", {
             longUrl:longUrl,
          }).then(res =>{
           if(res.data.message==="null")

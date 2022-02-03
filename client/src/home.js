@@ -10,7 +10,7 @@ function App2(){
  // const[loginStatus,setLoginStatus]=useState('');
  
   const login =() =>{
-   Axios.post("http://localhost:3001/login", {
+   Axios.post("http://localhost:5000/login", {
      username: username,
      password: pd,
   }).then(res =>{
