@@ -11,7 +11,8 @@ function App3() {
   //const[shortUrl,setShortUrll]=useState("");
   const shortid = require("shortid");
   /*const baseUrl="https://url-shortner-mern.herokuapp.com";*/
-  const baseUrl = "http://127.0.0.1:5000";
+  
+  const baseUrl = "https://mern-urlshortner.herokuapp.com";
 
   const [shortUrl, setShortUrl] = useState("");
   const [shortCode, setShortCode] = useState("");
