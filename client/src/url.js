@@ -57,22 +57,24 @@ function App3() {
 */
 
   const handleSubmit = (e) => {
+    console.log("inside handle submit");
     Axios.post("/api/check", {
       longUrl: longUrl,
     }).then((res) => {
       if (res.data.message === "null") {
         const urlCode = shortid.generate();
+        console.log("generated");
         console.log(urlCode);
-        const shortcode = baseUrl + "/api/" + urlCode;
+        const shortcode = baseUrl + "/" + "api" + "/" + urlCode;
         console.log("if");
         setShortCode(urlCode);
         setShortUrl(shortcode);
         setShortenedUrl(shortcode);
-        e.preventDefault();
+    
       } else {
         setShortUrl(res.data.message);
         console.log("else");
-        e.preventDefault();
+       
       }
     });
   };
@@ -102,7 +104,9 @@ function App3() {
                 <button
                   type="button"
                   id="create-short-url"
-                  onClick={handleSubmit}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSubmit();}}
                 >
                   Shorten
                 </button>

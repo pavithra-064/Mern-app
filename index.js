@@ -99,15 +99,19 @@ app.post("/api/url", async (req, res) => {
 });
 
 app.post("/api/check", async (req, res) => {
+  console.log("inside check api");
   const longUrl = req.body.longUrl;
   link.findOne({ longUrl: longUrl }, (err, url) => {
     if (err) {
       res.send({ err: err });
+      console.log("error");
     }
     if (url) {
       res.send({ message: url.shortUrl });
+      console.log("url already exist");
     } else {
       res.send({ message: "null" });
+      console.log("url not available");
     }
   });
 });
