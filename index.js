@@ -127,7 +127,7 @@ app.get("/api/read", async (req, res) => {
   res.redirect('/')
 })*/
 
-app.get("/*", async (req, res) => {
+app.get("/api/*", async (req, res) => {
   const shortenedUrl = req.params[0];
   const shortUrl = await link.findOne({ shortenedUrl: shortenedUrl });
   if (!shortUrl) return res.sendStatus(404);
