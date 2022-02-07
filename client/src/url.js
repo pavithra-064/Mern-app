@@ -63,7 +63,7 @@ function App3() {
       if (res.data.message === "null") {
         const urlCode = shortid.generate();
         console.log(urlCode);
-        const shortcode = baseUrl + "/" + urlCode;
+        const shortcode = baseUrl + "/api/" + urlCode;
         setShortCode(urlCode);
         setShortUrl(shortcode);
         setShortenedUrl(shortcode);
