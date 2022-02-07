@@ -64,12 +64,14 @@ function App3() {
         const urlCode = shortid.generate();
         console.log(urlCode);
         const shortcode = baseUrl + "/api/" + urlCode;
+        console.log("if",shortcode);
         setShortCode(urlCode);
         setShortUrl(shortcode);
         setShortenedUrl(shortcode);
         e.preventDefault();
       } else {
         setShortUrl(res.data.message);
+        console.log("else",res.data.message);
         e.preventDefault();
       }
     });
